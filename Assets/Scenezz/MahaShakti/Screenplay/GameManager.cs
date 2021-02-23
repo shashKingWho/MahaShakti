@@ -14,9 +14,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sceneName = SceneManager.GetActiveScene().name;
+        //sceneName = SceneManager.GetActiveScene().name;
+        sceneName = "Opening";
 
-        asurArmyMeter.maxValue = 10;
+        asurArmyMeter.maxValue = 5;
         asurArmyMeter.minValue = 0;
 
     }
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (asurArmyMeter.value >= 10)
+        if (asurArmyMeter.value >= 5)
         {
             NowRestart(sceneName);
         }
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     public void NowRestart(string activeSceneHere) {
         // the scene sends: scene = SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //SceneManager.LoadScene(activeSceneHere);
         SceneManager.LoadScene(activeSceneHere);
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class FistOfFury : MonoBehaviour
 {
     AudioSource bajaa;
+    public OVRInput.Controller controllerBataChal;
 
     public HapticsOHYeah hapticsOHYeah;
     public MeshRenderer meshy;
@@ -23,6 +24,11 @@ public class FistOfFury : MonoBehaviour
         }
         if (meshy == null) {
             Find_Meshy();
+            Debug.Log(meshy + " idhar yeh he BHSSSSSSSSSS");
+        }
+        if (hapticsOHYeah == null)
+        {
+            Find_HapticsOhYeah();
         }
     }
 
@@ -30,7 +36,7 @@ public class FistOfFury : MonoBehaviour
     {
         if (other.gameObject.CompareTag("enemyThick")) {
             bajaa.Play();
-            other.enabled = false;
+            //other.enabled = false;
         }
     }
 
@@ -41,10 +47,11 @@ public class FistOfFury : MonoBehaviour
 
     public void FistOFDoom()
     {
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, OVRInput.Controller.RTouch)) //OVRInput.Button.One, ))
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryHandTrigger, controllerBataChal)) //OVRInput.Button.One, ))
         {
-            hapticsOHYeah.Vibrator(.03f, .4f, .3f, OVRInput.Controller.LTouch);
-            StartCoroutine(VisiblePower());
+            hapticsOHYeah.Vibrator(.03f, .4f, .3f, controllerBataChal);
+            //StartCoroutine(VisiblePower());
+            meshy.enabled = true;
         }
     }
 
@@ -54,7 +61,12 @@ public class FistOfFury : MonoBehaviour
 
     IEnumerator VisiblePower() { 
         meshy.enabled = true;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(1f);
         meshy.enabled = false;
+    }
+
+    void Find_HapticsOhYeah()
+    {
+        hapticsOHYeah = GameObject.Find("HapticsOHYeah").GetComponent<HapticsOHYeah>();
     }
 }

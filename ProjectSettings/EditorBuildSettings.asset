@@ -15,8 +15,11 @@ EditorBuildSettings:
     path: Assets/MRTK.ThirdParty/MRTK-Quest/Scenes/MRTK-Quest_BasicSetup 1.unity
     guid: 54755fb424de57649821ef40505a36a1
   - enabled: 0
-    path: Assets/Scenezz/HouseArrest.unity
-    guid: 59e4cc5f806bbca4a8d05e06a149a7c2
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenezz/Opening.unity
+    guid: 4f1cf53fc4d6c514386933d54d7713ae
   - enabled: 1
     path: Assets/Scenezz/MarutiMR_King.unity
     guid: e577179572257894fbade77e77ae1180
